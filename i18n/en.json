@@ -7,6 +7,6 @@
     "example-welcome-title-loggedout": "Hi there!",
     "example-welcome-color-label": "Today's color:",
     "example-welcome-color-value": "$1",
-    "example-helloworld": "Bar",
-    "example-helloworld-intro": "This is the HelloWorld special page, as provided by the Example extension."
+    "example-helloworld": "Spelling Dictionary",
+    "example-helloworld-intro": "This is the landing special page of the Spelling Dictionary extension."
 }

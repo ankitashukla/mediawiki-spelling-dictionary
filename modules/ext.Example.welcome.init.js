@@ -1,9 +1,9 @@
 /**
  * Initialize Welcome
  *
- * This file is part of the 'ext.Example.welcome.init' module,
- * which is enqueued for loading from ExampleHooks::onBeforePageDisplay()
- * in Example.hooks.php.
+ * This file is part of the 'ext.SpellingDictionary.welcome.init' module,
+ * which is enqueued for loading from SpellingDictionaryHooks::onBeforePageDisplay()
+ * in SpellingDictionary.hooks.php.
  */
 ( function ( mw, $ ) {
 

@@ -1,5 +1,5 @@
 /**
- * JavaScript for Welcome in Example.
+ * JavaScript for Welcome in SpellingDictionary.
  * Inserts a welcome message into the page content.
  */
 ( function ( mw, $ ) {
@@ -56,13 +56,13 @@
 			var days, day;
 
 			day = dayMap[d.getDay()];
-			days = mw.config.get( 'wgExampleWelcomeColorDays' );
+			days = mw.config.get( 'wgSpellingDictionaryWelcomeColorDays' );
 
 			if ( day && days[day] !== undefined ) {
 				return days[day];
 			}
 
-			return mw.config.get( 'wgExampleWelcomeColorDefault' );
+			return mw.config.get( 'wgSpellingDictionaryWelcomeColorDefault' );
 		}
 	};
 

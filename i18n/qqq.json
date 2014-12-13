@@ -5,6 +5,6 @@
     "example-desc": "{{desc}}",
     "example-welcome-title-user": "Title of the Welcome interface for logged-in users. $1 is the username.",
     "example-welcome-title-loggedout": "Title of the Welcome interface logged-out users.",
-    "example-helloworld": "Title of Special:HelloWorld.",
-    "example-helloworld-intro": "Intro paragraph shown on Special:HelloWorld."
+    "example-helloworld": "Title of Special:SpellingDictionary.",
+    "example-helloworld-intro": "Intro paragraph shown on Special:SpellingDictionary."
 }

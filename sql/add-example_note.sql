@@ -1,5 +1,5 @@
 --
--- Tables for the Example extension
+-- Tables for the SpellingDictionary extension
 --
 
 -- Notes table
