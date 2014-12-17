@@ -1,5 +1,5 @@
 <?php
-class ApiQueryExample extends ApiQueryBase {
+class ApiQuerySpellingDictionary extends ApiQueryBase {
 
 	/**
 	 * Constructor is optional. Only needed if we give
@@ -15,11 +15,11 @@ class ApiQueryExample extends ApiQueryBase {
 
 	/**
 	 * In this example we're returning one ore more properties
-	 * of wgExampleFooStuff. In a more realistic example, this
+	 * of wgSpellingDictionaryFooStuff. In a more realistic example, this
 	 * method would probably
 	 */
 	public function execute() {
-		global $wgExampleFooStuff;
+		global $wgSpellingDictionaryFooStuff;
 		$params = $this->extractRequestParams();
 
 		$stuff = array();
@@ -28,14 +28,14 @@ class ApiQueryExample extends ApiQueryBase {
 		// (or none, if it doesn't exist)
 		if ( isset( $params['key'] ) ) {
 			$key = $params['key'];
-			if ( isset( $wgExampleFooStuff[$key] ) ) {
-				$stuff[$key] = $wgExampleFooStuff[$key];
+			if ( isset( $wgSpellingDictionaryFooStuff[$key] ) ) {
+				$stuff[$key] = $wgSpellingDictionaryFooStuff[$key];
 			}
 
 		// This is an unfiltered request, replace the array with the total
 		// set of properties instead.
 		} else {
-			$stuff = $wgExampleFooStuff;
+			$stuff = $wgSpellingDictionaryFooStuff;
 		}
 
 		$r = array( 'stuff' => $stuff );
@@ -60,7 +60,7 @@ class ApiQueryExample extends ApiQueryBase {
 		return 'Get information about foo';
 	}
 
-	protected function getExamples() {
+	protected function getSpellingDictionarys() {
 		return array(
 			'api.php?action=query&list=example',
 			'api.php?action=query&list=example&key=do',
