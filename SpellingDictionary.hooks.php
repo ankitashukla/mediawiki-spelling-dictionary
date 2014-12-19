@@ -79,7 +79,7 @@ class SpellingDictionaryHooks {
 	 * This registers our database schema update(s)
 	 */
 	public static function onLoadExtensionSchemaUpdates( $updater ) {
-		$updater->addExtensionTable( 'example_note', __DIR__ . '/sql/add-example_note.sql' );
+		$updater->addExtensionTable( 'word_list', __DIR__ . '/sql/spelling_dictionary.sql' );
 
 		return true;
 	}
