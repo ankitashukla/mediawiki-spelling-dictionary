@@ -44,7 +44,7 @@ class SpellingDictionaryHooks {
 		// Add the following to a wiki page to see how it works:
 		//  <dump>test</dump>
 		//  <dump foo="bar" baz="quux">test content</dump>
-		$parser->setHook( 'dump' , 'SpellingDictionaryHooks::parserTagDump' );
+		$parser->setHook( 'dump', 'SpellingDictionaryHooks::parserTagDump' );
 
 		// Add the following to a wiki page to see how it works:
 		//  {{#echo: hello }}
