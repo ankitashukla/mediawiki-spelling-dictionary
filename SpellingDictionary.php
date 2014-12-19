@@ -22,8 +22,6 @@
  * The author would let everyone know who wrote the code, if there is more
  * than one author, add multiple author annotations:
  * @author Ankita Shukla
- * @author Jane Doe
- * @author George Foo
  *
  * To mention the file version in the documentation:
  * @version 1.0
@@ -48,10 +46,7 @@ $wgExtensionCredits['other'][] = array(
 	// mentionning, you can use the special case '...' to output a localised
 	// message 'and others...'.
 	'author' => array(
-		'Jane Doe',
-		'George Foo',
-		'Ankita Shukla',
-		'...'
+		'Ankita Shukla'
 	),
 
 	'version'  => '0.1.0',
@@ -64,7 +59,7 @@ $wgExtensionCredits['other'][] = array(
 
 
 	# Key name of the message containing the description.
-	'descriptionmsg' => 'example-desc',
+	'descriptionmsg' => 'desc',
 );
 
 /* Setup */
@@ -113,10 +108,10 @@ $wgResourceModules['ext.SpellingDictionary.welcome'] = array(
 		'modules/ext.SpellingDictionary.welcome.css',
 	),
 	'messages' => array(
-		'example-welcome-title-loggedout',
-		'example-welcome-title-user',
-		'example-welcome-color-label',
-		'example-welcome-color-value',
+		'welcome-title-loggedout',
+		'welcome-title-user',
+		'welcome-color-label',
+		'welcome-color-value',
 	),
 	'dependencies' => array(
 		'mediawiki.util',

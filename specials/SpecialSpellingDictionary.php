@@ -26,11 +26,11 @@ class SpecialSpellingDictionary extends SpecialPage {
 	public function execute( $sub ) {
 		$out = $this->getOutput();
 
-		$out->setPageTitle( $this->msg( 'example-helloworld' ) );
+		$out->setPageTitle( $this->msg( 'title-special' ) );
 
 		// Parses message from .i18n.php as wikitext and adds it to the
 		// page output.
-		$out->addWikiMsg( 'example-helloworld-intro' );
+		$out->addWikiMsg( 'intro-paragraph' );
 	}
 
 }
