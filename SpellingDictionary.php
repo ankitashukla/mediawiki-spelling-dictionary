@@ -1,26 +1,8 @@
 <?php
 /**
- * SpellingDictionary extension - based on the BoilerPlate
- *
+ * SpellingDictionary extension
  * For more info see mediawiki.org/wiki/Extension:SpellingDictionary
  *
- * You should add a brief comment explaining what the file contains and
- * what it is for. MediaWiki core uses the doxygen documentation syntax,
- * you're recommended to use those tags to complement your comment.
- * See the online documentation at:
- * http://www.stack.nl/~dimitri/doxygen/manual.html
- *
- * Here are commonly used tags, most of them are optional, though:
- *
- * First we tag this document block as describing the entire file (as opposed
- * to a variable, class or function):
- * @file
- *
- * We regroup all extensions documentation in the group named "Extensions":
- * @ingroup Extensions
- *
- * The author would let everyone know who wrote the code, if there is more
- * than one author, add multiple author annotations:
  * @author Ankita Shukla
  *
  * To mention the file version in the documentation:
@@ -38,27 +20,14 @@
  */
 $wgExtensionCredits['other'][] = array(
 	'path' => __FILE__,
-
-	// Name of your Extension:
 	'name' => 'SpellingDictionary',
-
-	// Sometime other patches contributors and minor authors are not worth
-	// mentionning, you can use the special case '...' to output a localised
-	// message 'and others...'.
 	'author' => array(
 		'Ankita Shukla'
 	),
-
 	'version'  => '0.1.0',
-
-	// The extension homepage. www.mediawiki.org will be happy to host
-	// your extension homepage.
 	//Delete this url and uncomment the next one when the extension goes live on the core page.
 	'url' => 'https://www.mediawiki.org/wiki/User:Ankitashukla/Extension:SpellingDictionary',
-	// 'url' => 'https://www.mediawiki.org/wiki/Extension:SpellingDictionary',
-
-
-	# Key name of the message containing the description.
+	//'url' => 'https://www.mediawiki.org/wiki/Extension:SpellingDictionary',
 	'descriptionmsg' => 'desc',
 );
 
@@ -67,6 +36,14 @@ $wgExtensionCredits['other'][] = array(
 // Initialize an easy to use shortcut:
 $dir = dirname( __FILE__ );
 $dirbasename = basename( $dir );
+
+// Globals for this extension
+
+/**
+ * Spelling Dictionary database to store words.
+ * @see sql/contenttranslation.sql for scripts to create this database.
+ */
+$GLOBALS['wgSpellingDictionaryDatabase'] = 'spelling_dictionary`';
 
 // Register files
 // MediaWiki need to know which PHP files contains your class. It has a
