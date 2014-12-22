@@ -31,6 +31,34 @@ class SpecialSpellingDictionary extends SpecialPage {
 		// Parses message from .i18n.php as wikitext and adds it to the
 		// page output.
 		$out->addWikiMsg( 'intro-paragraph' );
+
+
+		$formDescriptor = array(				
+			'word' => array(
+				'type' => 'text',
+				'label-message' => 'spell-dict-word',
+				'required' => true,
+			),
+			'language' => array(
+				'type' => 'text',
+				'label-message' => 'spell-dict-lang',
+				'required' => true,
+			),
+		);
+
+		$form = new HTMLForm( $formDescriptor, $this->getContext(), 'add-word' );
+		$form->setDisplayFormat( 'vform' );
+		$form->setSubmitText( wfMessage( 'add-word-form-submit' )->text() );
+		//Callback function
+		$form->setSubmitCallback( array( 'SpecialSpellingDictionary', 'addWord' ) );
+
+		$form->show();
 	}
 
+	static function addWord( $formData ) {
+		if ( $formData['word'] == 'Fleep' ) {
+			return true;
+		}
+		return 'Try again';
+	}
 }
