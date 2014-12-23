@@ -51,6 +51,7 @@ $GLOBALS['wgSpellingDictionaryDatabase'] = 'spelling_dictionary`';
 // $wgAutoLoadClasses as below:
 $wgAutoloadClasses['SpellingDictionaryHooks'] = $dir . '/SpellingDictionary.hooks.php';
 $wgAutoloadClasses['SpecialSpellingDictionary'] = $dir . '/specials/SpecialSpellingDictionary.php';
+$wgAutoloadClasses['SpecialSpellingDictionaryAdmin'] = $dir . '/specials/SpecialSpellingDictionaryAdmin.php';
 $wgAutoloadClasses['ApiQuerySpellingDictionary'] = $dir . '/api/ApiQuerySpellingDictionary.php';
 
 $wgMessagesDirs['SpellingDictionary'] = __DIR__ . '/i18n';
@@ -72,6 +73,8 @@ $wgHooks['LoadExtensionSchemaUpdates'][] = 'SpellingDictionaryHooks::onLoadExten
 // See also http://www.mediawiki.org/wiki/Manual:Special_pages
 $wgSpecialPages['SpellingDictionary'] = 'SpecialSpellingDictionary';
 $wgSpecialPageGroups['SpellingDictionary'] = 'other';
+$wgSpecialPages['SpellingDictionaryAdmin'] = 'SpecialSpellingDictionaryAdmin';
+$wgSpecialPageGroups['SpellingDictionaryAdmin'] = 'other';
 
 // Register modules
 // See also http://www.mediawiki.org/wiki/Manual:$wgResourceModules
