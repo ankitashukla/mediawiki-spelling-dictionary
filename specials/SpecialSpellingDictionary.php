@@ -33,17 +33,22 @@ class SpecialSpellingDictionary extends SpecialPage {
 		$out->addWikiMsg( 'intro-paragraph' );
 
 
-		$formDescriptor = array(				
+		$formDescriptor = array(
 			'word' => array(
 				'type' => 'text',
 				'label-message' => 'spell-dict-word',
 				'required' => true,
 			),
 			'language' => array(
-				'type' => 'text',
+				'type' => 'select',
 				'label-message' => 'spell-dict-lang',
 				'required' => true,
-			),
+				 'options' => array(
+					'English' => 'en',
+					'French' => 'fr',
+					'Hindi' => 'hi'
+				),
+			)
 		);
 
 		$form = new HTMLForm( $formDescriptor, $this->getContext(), 'add-word' );
@@ -57,6 +62,8 @@ class SpecialSpellingDictionary extends SpecialPage {
 
 	static function addWord( $formData ) {
 		if ( $formData['word'] == 'Fleep' ) {
+			$user = $this->getUser();
+			$timestamp = wfTimestampNow();
 			return true;
 		}
 		return 'Try again';
