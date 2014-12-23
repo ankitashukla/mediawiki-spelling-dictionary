@@ -1,12 +1,14 @@
 {
-    "@metadata": {
-        "authors": ["Ankita Shukla"]
-    },
-    "spellingdictionary": "Spelling Dictionary",
-    "desc": "This is the Spelling Dictionary extension.",
-    "title-special": "Spelling Dictionary",
-    "intro-paragraph": "This is the landing special page of the Spelling Dictionary extension.",
-    "spell-dict-word": "Enter word",
-    "spell-dict-lang": "What language does the word belong to?",
-    "add-word-form-submit": "Submit word",
+	"@metadata": {
+		"authors": [
+			"Ankita Shukla"
+		]
+	},
+	"spellingdictionary": "Spelling Dictionary",
+	"desc": "This is the Spelling Dictionary extension.",
+	"title-special": "Spelling Dictionary",
+	"intro-paragraph": "This is the landing special page of the Spelling Dictionary extension.",
+	"spell-dict-word": "Enter word",
+	"spell-dict-lang": "What language does the word belong to?",
+	"add-word-form-submit": "Submit word"
 }

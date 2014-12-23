@@ -1,11 +1,11 @@
 {
-    "@metadata": {
-        "authors": ["Ankita Shukla"]
-    },
-    "desc": "{{desc}}",
-    "title-special": "Title of Special:SpellingDictionary.",
-    "intro-paragraph": "Intro paragraph shown on Special:SpellingDictionary.",
-    "spell-dict-word": "Form label for word field to add word",
-    "spell-dict-lang": "Form label for language field to add word",
-    "add-word-form-submit": "Submit button of form",
+	"@metadata": {
+		"authors": ["Ankita Shukla"]
+	},
+	"desc": "{{desc}}",
+	"title-special": "Title of Special:SpellingDictionary.",
+	"intro-paragraph": "Intro paragraph shown on Special:SpellingDictionary.",
+	"spell-dict-word": "Form label for word field to add word",
+	"spell-dict-lang": "Form label for language field to add word",
+	"add-word-form-submit": "Submit button of form"
 }
