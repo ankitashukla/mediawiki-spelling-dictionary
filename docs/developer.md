@@ -5,39 +5,35 @@
 Here's a suggested database layout that would be implemented. 
 
 
-**suggestions**
+**word_list**
 
-| User | Word | meaning | verified (no by default) | related terms |
-|------|------|---------|--------------------------|---------------|
+| User | Word | language | timestamp |
+|------|------|----------|-----------|
 
 where related terms refer to phrases, synonyms, antonyms etc
 
-**admin_panel form**
 
-| Word | meaning |
-|------|---------|
+**Two pages**
+- Special:SpellingDictionary
+- Special:SpellingDictionaryAdmin
+
+
+
+**Special:SpellingDictionaryAdmin Page**
+
+- List of words
+- Editing rights
+- Verifying the words
 
 | Accept | Reject               |
 |--------|----------------------|
 |        | Reason for rejecting |
 
-- If a word is accepted, verified is set to true, and the word is removed from ‘suggestions’ and added to ‘words’ 
 
-**words**
-
-| Word | meaning | related terms (phrases,synonyms,antonyms) |
-|------|---------|-------------------------------------------|
+Other Options
+- Import a script (to add words)
 
 
-- If rejected, the word is removed from suggestions and added to review_language
-- For rejected words: add the word to review_language table, where other contributors could have a look and suggest meanings and spelling
-
-**review_language**
-
-| Word | suggested meaning | Reason for rejecting |
-|------|-------------------|----------------------|
-
-- Any word from table review_language can be re-edited, and re-suggested, and again added to the suggestions table 
 
 **Words page** (visible to admin only):
 
