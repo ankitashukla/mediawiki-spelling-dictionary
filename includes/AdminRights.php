@@ -24,7 +24,7 @@ class AdminRights {
 			'spelling_dictionary',
 			'*',
 			array(
-				'language' => $language;
+				'language' => $language,
 			),
 			__METHOD__
 		);
