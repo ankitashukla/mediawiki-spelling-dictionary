@@ -38,17 +38,15 @@ $dir = dirname( __FILE__ );
 $dirbasename = basename( $dir );
 
 // Globals for this extension
-
-/**
- * Spelling Dictionary database to store words.
- * @see sql/contenttranslation.sql for scripts to create this database.
- */
-$GLOBALS['wgSpellingDictionaryDatabase'] = 'spelling_dictionary`';
+$wgSpellingDictionaryDatabase = false;
 
 // Register files
 // MediaWiki need to know which PHP files contains your class. It has a
 // registering mecanism to append to the internal autoloader. Simply use
 // $wgAutoLoadClasses as below:
+$wgAutoloadClasses['SpellingDictionary\Database'] = $dir . '/includes/Database.php';
+$wgAutoloadClasses['SpellingDictionary\Words'] = $dir . '/includes/Words.php';
+$wgAutoloadClasses['SpellingDictionary\AdminRights'] = $dir . '/includes/AdminRights.php';
 $wgAutoloadClasses['SpellingDictionaryHooks'] = $dir . '/SpellingDictionary.hooks.php';
 $wgAutoloadClasses['SpecialSpellingDictionary'] = $dir . '/specials/SpecialSpellingDictionary.php';
 $wgAutoloadClasses['SpecialSpellingDictionaryAdmin'] = $dir . '/specials/SpecialSpellingDictionaryAdmin.php';
@@ -67,6 +65,7 @@ $wgHooks['ResourceLoaderGetConfigVars'][] = 'SpellingDictionaryHooks::onResource
 $wgHooks['ParserFirstCallInit'][] = 'SpellingDictionaryHooks::onParserFirstCallInit';
 $wgHooks['MagicWordwgVariableIDs'][] = 'SpellingDictionaryHooks::onRegisterMagicWords';
 $wgHooks['ParserGetVariableValueSwitch'][] = 'SpellingDictionaryHooks::onParserGetVariableValueSwitch';
+# Schema updates for update.php
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'SpellingDictionaryHooks::onLoadExtensionSchemaUpdates';
 
 // Register special pages
@@ -88,10 +87,7 @@ $wgResourceModules['ext.SpellingDictionary.welcome'] = array(
 		'modules/ext.SpellingDictionary.welcome.css',
 	),
 	'messages' => array(
-		'welcome-title-loggedout',
-		'welcome-title-user',
-		'welcome-color-label',
-		'welcome-color-value',
+		'title-special',
 	),
 	'dependencies' => array(
 		'mediawiki.util',
@@ -100,7 +96,7 @@ $wgResourceModules['ext.SpellingDictionary.welcome'] = array(
 	),
 
 	'localBasePath' => $dir,
-	'remoteExtPath' => 'examples/' . $dirbasename,
+	'remoteExtPath' => 'SpellingDictionary/' . $dirbasename,
 );
 
 $wgResourceModules['ext.SpellingDictionary.welcome.init'] = array(
@@ -110,8 +106,51 @@ $wgResourceModules['ext.SpellingDictionary.welcome.init'] = array(
 	),
 
 	'localBasePath' => $dir,
-	'remoteExtPath' => 'examples/' . $dirbasename,
+	'remoteExtPath' => 'SpellingDictionary/' . $dirbasename,
 );
+
+// ULS
+$resourcePaths = array(
+	'localBasePath' => __DIR__,
+	'remoteExtPath' => 'SpellingDictionary'
+);
+
+
+$wgResourceModules['jquery.uls'] = array(
+	'scripts' => array(
+		'modules/jquery.uls/src/jquery.uls.core.js',
+		'modules/jquery.uls/src/jquery.uls.lcd.js',
+		'modules/jquery.uls/src/jquery.uls.languagefilter.js',
+		'modules/jquery.uls/src/jquery.uls.regionfilter.js',
+	),
+	'styles' => array(
+		'modules/jquery.uls/css/jquery.uls.css',
+		'modules/jquery.uls/css/jquery.uls.lcd.css',
+	),
+	'dependencies' => array(
+		'jquery.i18n',
+		'jquery.uls.data',
+		'jquery.uls.grid',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['jquery.uls.compact'] = array(
+	'styles' => 'modules/jquery.uls/css/jquery.uls.compact.css',
+	'dependencies' => 'jquery.uls',
+) + $resourcePaths;
+
+$wgResourceModules['jquery.uls.data'] = array(
+	'scripts' => array(
+		'modules/jquery.uls/src/jquery.uls.data.js',
+		'modules/jquery.uls/src/jquery.uls.data.utils.js',
+	),
+	'targets' => array( 'desktop', 'mobile' ),
+) + $resourcePaths;
+
+$wgResourceModules['jquery.uls.grid'] = array(
+	'styles' => 'modules/jquery.uls/css/jquery.uls.grid.css',
+) + $resourcePaths;
+
 
 /* Configuration */
 
