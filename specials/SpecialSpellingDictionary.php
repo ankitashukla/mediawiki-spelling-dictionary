@@ -55,17 +55,13 @@ class SpecialSpellingDictionary extends SpecialPage {
 		$form->setDisplayFormat( 'vform' );
 		$form->setSubmitText( wfMessage( 'add-word-form-submit' )->text() );
 		//Callback function
-		$form->setSubmitCallback( array( 'SpecialSpellingDictionary', 'addWord' ) );
+		$form->setSubmitCallback( array( 'SpecialSpellingDictionary', 'store' ) );
 
 		$form->show();
 	}
 
-	static function addWord( $formData ) {
-		if ( $formData['word'] == 'Fleep' ) {
-			$user = $this->getUser();
-			$timestamp = wfTimestampNow();
-			return true;
-		}
-		return 'Try again';
+	static function store( $formData ) {
+		SpellingDictionary\Words::addWord( $formData );
 	}
+
 }
