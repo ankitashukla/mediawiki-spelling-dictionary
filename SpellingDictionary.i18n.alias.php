@@ -11,4 +11,5 @@ $specialPageAliases = array();
 /** English (English) */
 $specialPageAliases['en'] = array(
 	'SpellingDictionary' => array( 'SpellingDictionary' ),
+	'SpellingDictionaryAdmin' => array( 'SpellingDictionaryAdmin' ),
 );
