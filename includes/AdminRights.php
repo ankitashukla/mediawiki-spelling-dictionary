@@ -4,9 +4,10 @@ namespace SpellingDictionary;
 
 class AdminRights {
 	public function displayAllWords() {
-		$dbr = Database::getConnection( DB_SLAVE );
+		global $wgSpellingDictionaryDatabase;
+		$dbr = wfGetDB( DB_SLAVE, array(), $wgSpellingDictionaryDatabase );
 		$rows = $dbr->select(
-			'spelling_dictionary',
+			'spell_dict_word_list',
 			'*',
 			1,
 			__METHOD__
@@ -15,13 +16,14 @@ class AdminRights {
 		foreach ( $rows as $row ) {
 			$result[] = AdminRights::newFromRow( $row );
 		}
-		return $result;		
+		return $result;
 	}
 
 	public function displayByLanguage( $language ) {
-		$dbr = Database::getConnection( DB_SLAVE );
+		global $wgSpellingDictionaryDatabase;
+		$dbr = wfGetDB( DB_SLAVE, array(), $wgSpellingDictionaryDatabase );
 		$rows = $dbr->select(
-			'spelling_dictionary',
+			'spell_dict_word_list',
 			'*',
 			array(
 				'language' => $language,
@@ -32,6 +34,6 @@ class AdminRights {
 		foreach ( $rows as $row ) {
 			$result[] = AdminRights::newFromRow( $row );
 		}
-		return $result;		
+		return $result;
 	}
 }

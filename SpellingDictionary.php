@@ -49,7 +49,8 @@ $wgAutoloadClasses['SpellingDictionary\Words'] = $dir . '/includes/Words.php';
 $wgAutoloadClasses['SpellingDictionary\AdminRights'] = $dir . '/includes/AdminRights.php';
 $wgAutoloadClasses['SpellingDictionaryHooks'] = $dir . '/SpellingDictionary.hooks.php';
 $wgAutoloadClasses['SpecialSpellingDictionary'] = $dir . '/specials/SpecialSpellingDictionary.php';
-$wgAutoloadClasses['SpecialSpellingDictionaryAdmin'] = $dir . '/specials/SpecialSpellingDictionaryAdmin.php';
+$wgAutoloadClasses['SpecialSpellingDictionaryAdmin'] = $dir . '/specials/'
+													 .'SpecialSpellingDictionaryAdmin.php';
 $wgAutoloadClasses['ApiQuerySpellingDictionary'] = $dir . '/api/ApiQuerySpellingDictionary.php';
 
 $wgMessagesDirs['SpellingDictionary'] = __DIR__ . '/i18n';
@@ -61,10 +62,12 @@ $wgAPIListModules['example'] = 'ApiQuerySpellingDictionary';
 // Register hooks
 // See also http://www.mediawiki.org/wiki/Manual:Hooks
 $wgHooks['BeforePageDisplay'][] = 'SpellingDictionaryHooks::onBeforePageDisplay';
-$wgHooks['ResourceLoaderGetConfigVars'][] = 'SpellingDictionaryHooks::onResourceLoaderGetConfigVars';
+$wgHooks['ResourceLoaderGetConfigVars'][] = 
+	'SpellingDictionaryHooks::onResourceLoaderGetConfigVars';
 $wgHooks['ParserFirstCallInit'][] = 'SpellingDictionaryHooks::onParserFirstCallInit';
 $wgHooks['MagicWordwgVariableIDs'][] = 'SpellingDictionaryHooks::onRegisterMagicWords';
-$wgHooks['ParserGetVariableValueSwitch'][] = 'SpellingDictionaryHooks::onParserGetVariableValueSwitch';
+$wgHooks['ParserGetVariableValueSwitch'][] = 
+	'SpellingDictionaryHooks::onParserGetVariableValueSwitch';
 # Schema updates for update.php
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'SpellingDictionaryHooks::onLoadExtensionSchemaUpdates';
 

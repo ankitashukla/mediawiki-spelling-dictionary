@@ -26,10 +26,12 @@ class SpellingDictionaryHooks {
 	 * Expose configuration variables through mw.config in javascript.
 	 */
 	public static function onResourceLoaderGetConfigVars( &$vars ) {
-		global $wgSpellingDictionaryEnableWelcome, $wgSpellingDictionaryWelcomeColorDefault, $wgSpellingDictionaryWelcomeColorDays;
+		global $wgSpellingDictionaryEnableWelcome, $wgSpellingDictionaryWelcomeColorDefault,
+			$wgSpellingDictionaryWelcomeColorDays;
 
 		if ( $wgSpellingDictionaryEnableWelcome ) {
-			$vars['wgSpellingDictionaryWelcomeColorDefault'] = $wgSpellingDictionaryWelcomeColorDefault;
+			$vars['wgSpellingDictionaryWelcomeColorDefault'] = 
+				$wgSpellingDictionaryWelcomeColorDefault;
 			$vars['wgSpellingDictionaryWelcomeColorDays'] = $wgSpellingDictionaryWelcomeColorDays;
 		}
 
@@ -115,7 +117,8 @@ class SpellingDictionaryHooks {
 
 		// Very important to escape user data with htmlspecialchars() to prevent
 		// an XSS security vulnerability.
-		$html = '<pre>Dump Tag: ' . htmlspecialchars( FormatJson::encode( $dump, /*prettyPrint=*/true ) ) . '</pre>';
+		$html = '<pre>Dump Tag: ' 
+			  . htmlspecialchars( FormatJson::encode( $dump, /*prettyPrint=*/true ) ) . '</pre>';
 
 		return $html;
 	}
@@ -147,6 +150,7 @@ class SpellingDictionaryHooks {
 			'arguments' => $args,
 		);
 
-		return '<pre>Showme Function: ' . htmlspecialchars( FormatJson::encode( $showme, /*prettyPrint=*/true ) ) . '</pre>';
+		return '<pre>Showme Function: '
+			. htmlspecialchars( FormatJson::encode( $showme, /*prettyPrint=*/true ) ) . '</pre>';
 	}
 }
