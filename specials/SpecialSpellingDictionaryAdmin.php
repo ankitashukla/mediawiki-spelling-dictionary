@@ -36,7 +36,6 @@ class SpecialSpellingDictionaryAdmin extends SpecialPage {
 		// $result = array();
 		foreach ( $rows as $row ) {
 			$out->addHTML ( $row->sd_word . " of language " . $row->sd_language . "<br>" );
-			
 		}
 		// return $result;
 	}
