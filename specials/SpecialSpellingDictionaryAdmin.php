@@ -1,6 +1,6 @@
 <?php
 /**
- * SpellingDictionary SpecialPage for admins for SpellingDictionary extension
+ * SpellingDictionaryAdmin SpecialPage for admins for SpellingDictionary extension
  *
  * @file
  * @ingroup Extensions
@@ -12,9 +12,6 @@ class SpecialSpellingDictionaryAdmin extends SpecialPage {
 	 * Initialize the special page.
 	 */
 	public function __construct() {
-		// A special page should at least have a name.
-		// We do this by calling the parent class (the SpecialPage class)
-		// constructor method with the name as first and only parameter.
 		parent::__construct( 'SpellingDictionaryAdmin' );
 	}
 
@@ -25,12 +22,23 @@ class SpecialSpellingDictionaryAdmin extends SpecialPage {
 	 */
 	public function execute( $sub ) {
 		$out = $this->getOutput();
-
 		$out->setPageTitle( $this->msg( 'title-special-admin' ) );
-
-		// Parses message from .i18n.php as wikitext and adds it to the
-		// page output.
 		$out->addWikiMsg( 'intro-paragraph-admin' );
+
+		global $wgSpellingDictionaryDatabase;
+		$dbr = wfGetDB( DB_SLAVE, array(), $wgSpellingDictionaryDatabase );
+		$rows = $dbr->select(
+			'spell_dict_word_list',
+			'*',
+			1,
+			__METHOD__
+		);
+		// $result = array();
+		foreach ( $rows as $row ) {
+			$out->addHTML ( $row->sd_word . " of language " . $row->sd_language . "<br>" );
+
+		}
+		// return $result;
 	}
 
 }
