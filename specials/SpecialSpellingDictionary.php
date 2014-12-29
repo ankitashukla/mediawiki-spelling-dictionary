@@ -31,8 +31,6 @@ class SpecialSpellingDictionary extends SpecialPage {
 		// Parses message from .i18n.php as wikitext and adds it to the
 		// page output.
 		$out->addWikiMsg( 'intro-paragraph' );
-
-
 		$formDescriptor = array(
 			'word' => array(
 				'type' => 'text',
@@ -43,7 +41,7 @@ class SpecialSpellingDictionary extends SpecialPage {
 				'type' => 'select',
 				'label-message' => 'spell-dict-lang',
 				'required' => true,
-				 'options' => array(
+				'options' => array(
 					'English' => 'en',
 					'French' => 'fr',
 					'Hindi' => 'hi'

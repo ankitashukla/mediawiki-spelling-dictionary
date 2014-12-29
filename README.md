@@ -4,20 +4,28 @@ Spelling dictionary project aims at developing a collaborative dictionary for ch
 
 ##Installation
 
-Clone the git repo in mediawiki/extensions
-Add the following line to your LocalSettings.php
+- Download and extract the file(s) in a directory called SpellingDictionary in your mediawiki/extensions folder. If you're a developer, then instead you should clone the repository.
+
+- Add the following code at the bottom of your LocalSettings.php
 
 ```php
 require_once "$IP/extensions/SpellingDictionary/SpellingDictionary.php";
 ```
+
+- Done! Navigate to "Special:Version" on your wiki to verify that the extension is successfully installed.
+
 
 ####To add the table to the database
 - For non-vagrant installations:
 
  -  Change to the maintenance directory
  - Run the update script:
- - ```php update.php```
+ ```php update.php```
 
 - For vagrant installations:
 
-Run ```mwscript update.php``` in vagrant terminal
+  - Run ```mwscript update.php``` in vagrant terminal
+
+- You can also configure wgSpellingDictionaryDatabase global value as the name of database
+
+```$GLOBALS['wgSpellingDictionaryDatabase'] = 'spellingdictionary';```

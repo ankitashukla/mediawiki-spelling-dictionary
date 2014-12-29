@@ -1,4 +1,3 @@
--- --------------------------------------------------------
 -- Table structure for table `spell_dict_word_list`
 
 CREATE TABLE /*_*/spell_dict_word_list (

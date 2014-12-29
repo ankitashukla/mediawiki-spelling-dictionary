@@ -30,7 +30,7 @@ class SpellingDictionaryHooks {
 			$wgSpellingDictionaryWelcomeColorDays;
 
 		if ( $wgSpellingDictionaryEnableWelcome ) {
-			$vars['wgSpellingDictionaryWelcomeColorDefault'] = 
+			$vars['wgSpellingDictionaryWelcomeColorDefault'] =
 				$wgSpellingDictionaryWelcomeColorDefault;
 			$vars['wgSpellingDictionaryWelcomeColorDays'] = $wgSpellingDictionaryWelcomeColorDays;
 		}
@@ -117,8 +117,8 @@ class SpellingDictionaryHooks {
 
 		// Very important to escape user data with htmlspecialchars() to prevent
 		// an XSS security vulnerability.
-		$html = '<pre>Dump Tag: ' 
-			  . htmlspecialchars( FormatJson::encode( $dump, /*prettyPrint=*/true ) ) . '</pre>';
+		$html = '<pre>Dump Tag: '
+			. htmlspecialchars( FormatJson::encode( $dump, /*prettyPrint=*/true ) ) . '</pre>';
 
 		return $html;
 	}

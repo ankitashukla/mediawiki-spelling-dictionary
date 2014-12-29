@@ -6,7 +6,7 @@
  * @author Ankita Shukla
  *
  * To mention the file version in the documentation:
- * @version 1.0
+ * @version 0.1.0
  *
  * The license governing the extension code:
  * @license GNU General Public Licence 2.0 or later
@@ -31,7 +31,7 @@ $wgExtensionCredits['other'][] = array(
 	'descriptionmsg' => 'desc',
 );
 
-/* Setup */
+// Setup
 
 // Initialize an easy to use shortcut:
 $dir = dirname( __FILE__ );
@@ -50,7 +50,7 @@ $wgAutoloadClasses['SpellingDictionary\AdminRights'] = $dir . '/includes/AdminRi
 $wgAutoloadClasses['SpellingDictionaryHooks'] = $dir . '/SpellingDictionary.hooks.php';
 $wgAutoloadClasses['SpecialSpellingDictionary'] = $dir . '/specials/SpecialSpellingDictionary.php';
 $wgAutoloadClasses['SpecialSpellingDictionaryAdmin'] = $dir . '/specials/'
-													 .'SpecialSpellingDictionaryAdmin.php';
+													.'SpecialSpellingDictionaryAdmin.php';
 $wgAutoloadClasses['ApiQuerySpellingDictionary'] = $dir . '/api/ApiQuerySpellingDictionary.php';
 
 $wgMessagesDirs['SpellingDictionary'] = __DIR__ . '/i18n';
@@ -62,11 +62,11 @@ $wgAPIListModules['example'] = 'ApiQuerySpellingDictionary';
 // Register hooks
 // See also http://www.mediawiki.org/wiki/Manual:Hooks
 $wgHooks['BeforePageDisplay'][] = 'SpellingDictionaryHooks::onBeforePageDisplay';
-$wgHooks['ResourceLoaderGetConfigVars'][] = 
+$wgHooks['ResourceLoaderGetConfigVars'][] =
 	'SpellingDictionaryHooks::onResourceLoaderGetConfigVars';
 $wgHooks['ParserFirstCallInit'][] = 'SpellingDictionaryHooks::onParserFirstCallInit';
 $wgHooks['MagicWordwgVariableIDs'][] = 'SpellingDictionaryHooks::onRegisterMagicWords';
-$wgHooks['ParserGetVariableValueSwitch'][] = 
+$wgHooks['ParserGetVariableValueSwitch'][] =
 	'SpellingDictionaryHooks::onParserGetVariableValueSwitch';
 # Schema updates for update.php
 $wgHooks['LoadExtensionSchemaUpdates'][] = 'SpellingDictionaryHooks::onLoadExtensionSchemaUpdates';
@@ -155,7 +155,7 @@ $wgResourceModules['jquery.uls.grid'] = array(
 ) + $resourcePaths;
 
 
-/* Configuration */
+// Configuration
 
 
 /** Your extension configuration settings. Since they are going to be global
