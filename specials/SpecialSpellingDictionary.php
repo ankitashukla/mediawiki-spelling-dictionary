@@ -39,7 +39,7 @@ class SpecialSpellingDictionary extends SpecialPage {
 			),
 			'language' => array(
 				'type' => 'select',
-				'label-message' => 'spell-dict-lang',
+				'label-message' => 'spell-dict-language',
 				'required' => true,
 				'options' => array(
 					'English' => 'en',
