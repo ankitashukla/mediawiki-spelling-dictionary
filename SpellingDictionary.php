@@ -51,7 +51,14 @@ $wgAutoloadClasses['SpellingDictionaryHooks'] = $dir . '/SpellingDictionary.hook
 $wgAutoloadClasses['SpecialSpellingDictionary'] = $dir . '/specials/SpecialSpellingDictionary.php';
 $wgAutoloadClasses['SpecialSpellingDictionaryAdmin'] = $dir . '/specials/'
 													.'SpecialSpellingDictionaryAdmin.php';
+$wgAutoloadClasses['SpecialViewAll'] = $dir . '/specials/SpecialViewAll.php';
 $wgAutoloadClasses['ApiQuerySpellingDictionary'] = $dir . '/api/ApiQuerySpellingDictionary.php';
+$wgAutoloadClasses['ALAdminLinks']
+	= $wgAutoloadClasses['ALTree']
+	= $wgAutoloadClasses['ALSection']
+	= $wgAutoloadClasses['ALRow']
+	= $wgAutoloadClasses['ALItem']
+	= $dir . '/includes/AdminRights.php';
 
 $wgMessagesDirs['SpellingDictionary'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['SpellingDictionaryAlias'] = $dir . '/SpellingDictionary.i18n.alias.php';
@@ -112,48 +119,50 @@ $wgResourceModules['ext.SpellingDictionary.welcome.init'] = array(
 	'remoteExtPath' => 'SpellingDictionary/' . $dirbasename,
 );
 
-// ULS
-$resourcePaths = array(
-	'localBasePath' => __DIR__,
-	'remoteExtPath' => 'SpellingDictionary'
-);
-
-
-$wgResourceModules['jquery.uls'] = array(
-	'scripts' => array(
-		'modules/jquery.uls/src/jquery.uls.core.js',
-		'modules/jquery.uls/src/jquery.uls.lcd.js',
-		'modules/jquery.uls/src/jquery.uls.languagefilter.js',
-		'modules/jquery.uls/src/jquery.uls.regionfilter.js',
-	),
-	'styles' => array(
-		'modules/jquery.uls/css/jquery.uls.css',
-		'modules/jquery.uls/css/jquery.uls.lcd.css',
-	),
-	'dependencies' => array(
-		'jquery.i18n',
-		'jquery.uls.data',
-		'jquery.uls.grid',
-	),
-) + $resourcePaths;
-
-$wgResourceModules['jquery.uls.compact'] = array(
-	'styles' => 'modules/jquery.uls/css/jquery.uls.compact.css',
-	'dependencies' => 'jquery.uls',
-) + $resourcePaths;
-
-$wgResourceModules['jquery.uls.data'] = array(
-	'scripts' => array(
-		'modules/jquery.uls/src/jquery.uls.data.js',
-		'modules/jquery.uls/src/jquery.uls.data.utils.js',
-	),
-	'targets' => array( 'desktop', 'mobile' ),
-) + $resourcePaths;
-
-$wgResourceModules['jquery.uls.grid'] = array(
-	'styles' => 'modules/jquery.uls/css/jquery.uls.grid.css',
-) + $resourcePaths;
-
+/**
+* Commented out this section. To be reused later (when integrating ULS for language selection)
+* // ULS
+* $resourcePaths = array(
+* 	'localBasePath' => __DIR__,
+* 	'remoteExtPath' => 'SpellingDictionary'
+* );
+* 
+* 
+* $wgResourceModules['jquery.uls'] = array(
+* 	'scripts' => array(
+* 		'modules/jquery.uls/src/jquery.uls.core.js',
+* 		'modules/jquery.uls/src/jquery.uls.lcd.js',
+* 		'modules/jquery.uls/src/jquery.uls.languagefilter.js',
+* 		'modules/jquery.uls/src/jquery.uls.regionfilter.js',
+* 	),
+* 	'styles' => array(
+* 		'modules/jquery.uls/css/jquery.uls.css',
+* 		'modules/jquery.uls/css/jquery.uls.lcd.css',
+* 	),
+* 	'dependencies' => array(
+* 		'jquery.i18n',
+* 		'jquery.uls.data',
+* 		'jquery.uls.grid',
+* 	),
+* ) + $resourcePaths;
+* 
+* $wgResourceModules['jquery.uls.compact'] = array(
+* 	'styles' => 'modules/jquery.uls/css/jquery.uls.compact.css',
+* 	'dependencies' => 'jquery.uls',
+* ) + $resourcePaths;
+* 
+* $wgResourceModules['jquery.uls.data'] = array(
+* 	'scripts' => array(
+* 		'modules/jquery.uls/src/jquery.uls.data.js',
+* 		'modules/jquery.uls/src/jquery.uls.data.utils.js',
+* 	),
+* 	'targets' => array( 'desktop', 'mobile' ),
+* ) + $resourcePaths;
+* 
+* $wgResourceModules['jquery.uls.grid'] = array(
+* 	'styles' => 'modules/jquery.uls/css/jquery.uls.grid.css',
+* ) + $resourcePaths;
+*/
 
 // Configuration
 
