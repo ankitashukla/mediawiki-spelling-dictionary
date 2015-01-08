@@ -37,3 +37,25 @@ class AdminRights {
 		return $result;
 	}
 }
+
+/**
+ * The structure of the page would be like a tree where the 
+ * Tree contains sections.
+ * Every section will have items (which will be possibly links to other pages)
+ */
+
+// The 'tree' that holds all the sections and links for the Admin page
+class SDTree {
+}
+
+/**
+ * A single section of the Admin Links 'tree', composed of a header and rows
+ */
+class SDSection {
+}
+
+/**
+ * A single 'item' in the Spelling Dictionary Admin Links page
+ */
+class SDItem {
+}
