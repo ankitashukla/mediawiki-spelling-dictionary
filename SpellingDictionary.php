@@ -53,11 +53,9 @@ $wgAutoloadClasses['SpecialSpellingDictionaryAdmin'] = $dir . '/specials/'
 													.'SpecialSpellingDictionaryAdmin.php';
 $wgAutoloadClasses['SpecialViewAll'] = $dir . '/specials/SpecialViewAll.php';
 $wgAutoloadClasses['ApiQuerySpellingDictionary'] = $dir . '/api/ApiQuerySpellingDictionary.php';
-$wgAutoloadClasses['ALAdminLinks']
-	= $wgAutoloadClasses['ALTree']
-	= $wgAutoloadClasses['ALSection']
-	= $wgAutoloadClasses['ALRow']
-	= $wgAutoloadClasses['ALItem']
+$wgAutoloadClasses['SDTree']
+	= $wgAutoloadClasses['SDSection']
+	= $wgAutoloadClasses['SDItem']
 	= $dir . '/includes/AdminRights.php';
 
 $wgMessagesDirs['SpellingDictionary'] = __DIR__ . '/i18n';

@@ -18,6 +18,8 @@
 	"sd-admin-editsidebar": "Edit sidebar",
 	"sd-admin-editcss": "Edit CSS file",
 	"sd-admin-editmainpagename": "Edit name of main page",
-	"sd-admin-browse-dit": "Browse and edit",
+	"sd-admin-browse-edit": "Browse and edit",
+	"sd-admin-viewall": "View all words",
+	"sd-admin-view-by-language": "View by language",
 	"sd-admin-importexport": "Import and export"
 }
