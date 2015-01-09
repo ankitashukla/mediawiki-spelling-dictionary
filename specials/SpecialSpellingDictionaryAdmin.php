@@ -15,6 +15,10 @@ class SpecialSpellingDictionaryAdmin extends SpecialPage {
 		parent::__construct( 'SpellingDictionaryAdmin' );
 	}
 
+	public function initializeTree() {
+		$tree = new SpellingDictionary\SDTree();
+	}
+
 	/**
 	 * Shows the page to the user.
 	 * @param string $sub: The subpage string argument (if any).
@@ -26,6 +30,7 @@ class SpecialSpellingDictionaryAdmin extends SpecialPage {
 		$this->setHeaders();
 		$out->setPageTitle( $this->msg( 'title-special-admin' ) );
 		$out->addWikiMsg( 'intro-paragraph-admin' );
+		$admin_tree = $this->initializeTree();
 	}
 
 }

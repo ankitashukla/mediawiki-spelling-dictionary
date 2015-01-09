@@ -46,6 +46,14 @@ class AdminRights {
 
 // The 'tree' that holds all the sections and links for the Admin page
 class SDTree {
+
+	public $sections;
+
+	function addSection( $section ) {
+		$this->sections[] = $section;
+		return;
+	}
+
 }
 
 /**
