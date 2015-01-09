@@ -49,6 +49,10 @@ class SDTree {
 
 	public $sections;
 
+	function __construct() {
+		$this->sections = array();
+	}
+
 	function addSection( $section ) {
 		$this->sections[] = $section;
 		return;
@@ -60,10 +64,24 @@ class SDTree {
  * A single section of the Admin Links 'tree', composed of a header and rows
  */
 class SDSection {
+
+	public $header;
+	public $items;
+
+	function __construct( $header ) {
+		$this->header = $header;
+		$this->items = array();
+	}
+
+	function addItem( $item ) {
+		$this->items[] = $item;
+		return;
+	}
 }
 
 /**
  * A single 'item' in the Spelling Dictionary Admin Links page
  */
 class SDItem {
+	public $links;
 }
