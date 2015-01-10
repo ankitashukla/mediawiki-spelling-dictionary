@@ -17,6 +17,8 @@ class SpecialSpellingDictionaryAdmin extends SpecialPage {
 
 	public function initializeTree() {
 		$tree = new SpellingDictionary\SDTree();
+		$browse_edit = new SpellingDictionary\SDSection( $this->msg('sd-admin-browse-edit')->text() );
+		$browse_edit->addItem('sd-admin-viewall');
 	}
 
 	/**
@@ -31,6 +33,7 @@ class SpecialSpellingDictionaryAdmin extends SpecialPage {
 		$out->setPageTitle( $this->msg( 'title-special-admin' ) );
 		$out->addWikiMsg( 'intro-paragraph-admin' );
 		$admin_tree = $this->initializeTree();
+		$out->addHTML( $admin_tree->toString() );
 	}
 
 }
