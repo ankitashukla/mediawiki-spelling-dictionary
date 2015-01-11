@@ -1,6 +1,6 @@
 <?php
 
-namespace SpellingDictionary;
+// namespace SpellingDictionary;
 
 class AdminRights {
 	public function displayAllWords() {
@@ -77,11 +77,19 @@ class SDSection {
 		$this->items[] = $item;
 		return;
 	}
+
 }
 
 /**
  * A single 'item' in the Spelling Dictionary Admin Links page
  */
 class SDItem {
-	public $links;
+	public $link;
+
+	function showPage( $page_title, $desc = null, $query = array() ) {
+		$item = new SDItem();
+		$item->link = Linker::link( $page_title ,$desc, array(), $query );
+		return $item;
+	}
+
 }
