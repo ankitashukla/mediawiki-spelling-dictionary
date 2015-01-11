@@ -16,9 +16,16 @@ class SpecialSpellingDictionaryAdmin extends SpecialPage {
 	}
 
 	public function initializeTree() {
-		$tree = new SpellingDictionary\SDTree();
-		$browse_edit = new SpellingDictionary\SDSection( $this->msg('sd-admin-browse-edit')->text() );
-		$browse_edit->addItem('sd-admin-viewall');
+		$tree = new SDTree();
+		$viewall = SpecialPage::getTitleFor( ViewAll );
+		$browse_edit = new SDSection( $this->msg( 'sd-admin-browse-edit' )->text() );
+		$browse_edit->addItem( SDItem::showPage(
+			$viewall,
+			$this->msg('title-view-all')->text() )
+		);
+
+		$tree->addSection( $browse_edit );
+		return $tree;
 	}
 
 	/**
@@ -33,7 +40,7 @@ class SpecialSpellingDictionaryAdmin extends SpecialPage {
 		$out->setPageTitle( $this->msg( 'title-special-admin' ) );
 		$out->addWikiMsg( 'intro-paragraph-admin' );
 		$admin_tree = $this->initializeTree();
-		$out->addHTML( $admin_tree->toString() );
+		// $out->addHTML( $admin_tree );
 	}
 
 }
