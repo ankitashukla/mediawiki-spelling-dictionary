@@ -12,4 +12,5 @@ $specialPageAliases = array();
 $specialPageAliases['en'] = array(
 	'SpellingDictionary' => array( 'SpellingDictionary' ),
 	'SpellingDictionaryAdmin' => array( 'SpellingDictionaryAdmin' ),
+	'ViewAll' => array( 'ViewAll' )
 );
