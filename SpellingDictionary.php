@@ -44,18 +44,17 @@ $wgSpellingDictionaryDatabase = false;
 // MediaWiki need to know which PHP files contains your class. It has a
 // registering mecanism to append to the internal autoloader. Simply use
 // $wgAutoLoadClasses as below:
-$wgAutoloadClasses['SpellingDictionary\Database'] = $dir . '/includes/Database.php';
-$wgAutoloadClasses['SpellingDictionary\Words'] = $dir . '/includes/Words.php';
-$wgAutoloadClasses['SpellingDictionary\AdminRights'] = $dir . '/includes/AdminRights.php';
+$wgAutoloadClasses['Words'] = $dir . '/includes/Words.php';
+$wgAutoloadClasses['AdminRights'] = $dir . '/includes/AdminRights.php';
 $wgAutoloadClasses['SpellingDictionaryHooks'] = $dir . '/SpellingDictionary.hooks.php';
 $wgAutoloadClasses['SpecialSpellingDictionary'] = $dir . '/specials/SpecialSpellingDictionary.php';
 $wgAutoloadClasses['SpecialSpellingDictionaryAdmin'] = $dir . '/specials/'
 													.'SpecialSpellingDictionaryAdmin.php';
 $wgAutoloadClasses['SpecialViewAll'] = $dir . '/specials/SpecialViewAll.php';
 $wgAutoloadClasses['ApiQuerySpellingDictionary'] = $dir . '/api/ApiQuerySpellingDictionary.php';
-$wgAutoloadClasses['SpellingDictionary\SDTree'] = $dir . '/includes/AdminRights.php';
-$wgAutoloadClasses['SpellingDictionary\SDSection'] = $dir . '/includes/AdminRights.php';
-$wgAutoloadClasses['SpellingDictionary\SDItem'] = $dir . '/includes/AdminRights.php';
+$wgAutoloadClasses['SDTree'] = $dir . '/includes/AdminRights.php';
+$wgAutoloadClasses['SDSection'] = $dir . '/includes/AdminRights.php';
+$wgAutoloadClasses['SDItem'] = $dir . '/includes/AdminRights.php';
 
 $wgMessagesDirs['SpellingDictionary'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['SpellingDictionaryAlias'] = $dir . '/SpellingDictionary.i18n.alias.php';
@@ -81,6 +80,8 @@ $wgSpecialPages['SpellingDictionary'] = 'SpecialSpellingDictionary';
 $wgSpecialPageGroups['SpellingDictionary'] = 'other';
 $wgSpecialPages['SpellingDictionaryAdmin'] = 'SpecialSpellingDictionaryAdmin';
 $wgSpecialPageGroups['SpellingDictionaryAdmin'] = 'other';
+$wgSpecialPages['ViewAll'] = 'SpecialViewAll';
+$wgSpecialPageGroups['ViewAll'] = 'other';
 
 // Register modules
 // See also http://www.mediawiki.org/wiki/Manual:$wgResourceModules
