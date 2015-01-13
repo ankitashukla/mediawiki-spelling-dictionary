@@ -58,6 +58,13 @@ class SDTree {
 		return;
 	}
 
+	function toString() {
+		$text = "";
+		foreach ( $this->sections as $section ) {
+			$text .= $section->toString();
+		}
+		return $text;
+	}
 }
 
 /**
@@ -76,6 +83,14 @@ class SDSection {
 	function addItem( $item ) {
 		$this->items[] = $item;
 		return;
+	}
+
+	function toString() {
+		$text = '	<h2 class="mw-specialpagesgroup">' . $this->header . "</h2>\n";
+		foreach ( $this->items as $item ) {
+			$text .= $item->text;
+		}
+		return $text;
 	}
 
 }

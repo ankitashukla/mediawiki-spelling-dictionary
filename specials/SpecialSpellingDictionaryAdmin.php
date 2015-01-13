@@ -40,7 +40,7 @@ class SpecialSpellingDictionaryAdmin extends SpecialPage {
 		$out->setPageTitle( $this->msg( 'title-special-admin' ) );
 		$out->addWikiMsg( 'intro-paragraph-admin' );
 		$admin_tree = $this->initializeTree();
-		// $out->addHTML( $admin_tree );
+		$out->addHTML( $admin_tree->toString() );
 	}
 
 }
