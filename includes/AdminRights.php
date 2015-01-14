@@ -88,7 +88,7 @@ class SDSection {
 	function toString() {
 		$text = '	<h2 class="mw-specialpagesgroup">' . $this->header . "</h2>\n";
 		foreach ( $this->items as $item ) {
-			$text .= $item->text;
+			$text .= $item->link;
 		}
 		return $text;
 	}
@@ -103,7 +103,9 @@ class SDItem {
 
 	function showPage( $page_title, $desc = null, $query = array() ) {
 		$item = new SDItem();
-		$item->link = Linker::link( $page_title ,$desc, array(), $query );
+		// $page_title = getPageTitle();
+		// $item->link = Linker::link( $page_title ,$desc, array(), $query );
+		$item->link = Linker::link( $page_title );
 		return $item;
 	}
 
