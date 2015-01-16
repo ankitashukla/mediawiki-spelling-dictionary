@@ -17,13 +17,9 @@ class SpecialSpellingDictionaryAdmin extends SpecialPage {
 
 	public function initializeTree() {
 		$tree = new SDTree();
-		$viewall = SpecialPage::getTitleFor( 'ViewAll' );
 		$browse_edit = new SDSection( $this->msg( 'sd-admin-browse-edit' )->text() );
-		$browse_edit->addItem( SDItem::showPage($viewall));
-		// 	$viewall,
-		// 	$this->msg('title-view-all')->text()
-		// 	)
-		// );
+		$viewall = SpecialPage::getTitleFor( 'ViewAll' );
+		$browse_edit->addItem( SDItem::showPage($viewall, $this->msg( 'viewall' )->text() ));
 
 		$tree->addSection( $browse_edit );
 		return $tree;

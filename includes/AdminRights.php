@@ -103,9 +103,7 @@ class SDItem {
 
 	function showPage( $page_title, $desc = null, $query = array() ) {
 		$item = new SDItem();
-		// $page_title = getPageTitle();
-		// $item->link = Linker::link( $page_title ,$desc, array(), $query );
-		$item->link = Linker::link( $page_title );
+		$item->link = Linker::link( $page_title, $desc );
 		return $item;
 	}
 
