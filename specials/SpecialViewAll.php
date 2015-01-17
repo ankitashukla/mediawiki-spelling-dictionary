@@ -9,7 +9,7 @@ class SpecialViewAll extends SpecialPage {
 	public function execute( $sub ) {
 		$out = $this->getOutput();
 		$out->setPageTitle( $this->msg( 'title-view-all' ) );
-		$out->addWikiMsg( 'intro-paragraph' );
+		$out->addWikiMsg( 'view-all-intro' );
 		$out->addHTML ( AdminRights::displayAllWords() );
 	}
 }
