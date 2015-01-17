@@ -88,10 +88,13 @@ class SDSection {
 
 	function toString() {
 		$text = '	<h2 class="mw-specialpagesgroup">' . $this->header . "</h2>\n";
-		foreach ( $this->items as $item ) {
-			$text .= $item->link;
+		$text .= "	<p>\n";
+		foreach ( $this->items as $i => $item ) {
+			if ( $i > 0 )
+				$text .= " ·\n";
+			$text .= '		' . $item->link;
 		}
-		return $text;
+		return $text . "\n	</p>\n";
 	}
 
 }
