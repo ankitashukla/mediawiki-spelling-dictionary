@@ -19,7 +19,9 @@ class SpecialSpellingDictionaryAdmin extends SpecialPage {
 		$tree = new SDTree();
 		$browse_edit = new SDSection( $this->msg( 'sd-admin-browse-edit' )->text() );
 		$viewall = SpecialPage::getTitleFor( 'ViewAll' );
-		$browse_edit->addItem( SDItem::showPage($viewall, $this->msg( 'viewall' )->text() ));
+		$browse_edit->addItem( SDItem::showPage($viewall, $this->msg( 'sd-admin-viewall' )->text() ));
+		$viewByLang = SpecialPage::getTitleFor( 'ViewByLanguage' );
+		$browse_edit->addItem( SDItem::showPage($viewByLang, $this->msg( 'sd-admin-view-by-lang' )->text() ));
 
 		$tree->addSection( $browse_edit );
 		return $tree;
