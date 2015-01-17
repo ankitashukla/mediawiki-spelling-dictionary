@@ -51,6 +51,7 @@ $wgAutoloadClasses['SpecialSpellingDictionary'] = $dir . '/specials/SpecialSpell
 $wgAutoloadClasses['SpecialSpellingDictionaryAdmin'] = $dir . '/specials/'
 													.'SpecialSpellingDictionaryAdmin.php';
 $wgAutoloadClasses['SpecialViewAll'] = $dir . '/specials/SpecialViewAll.php';
+$wgAutoloadClasses['SpecialViewByLanguage'] = $dir . '/specials/SpecialViewByLanguage.php';
 $wgAutoloadClasses['ApiQuerySpellingDictionary'] = $dir . '/api/ApiQuerySpellingDictionary.php';
 $wgAutoloadClasses['SDTree'] = $dir . '/includes/AdminRights.php';
 $wgAutoloadClasses['SDSection'] = $dir . '/includes/AdminRights.php';
@@ -82,6 +83,8 @@ $wgSpecialPages['SpellingDictionaryAdmin'] = 'SpecialSpellingDictionaryAdmin';
 $wgSpecialPageGroups['SpellingDictionaryAdmin'] = 'other';
 $wgSpecialPages['ViewAll'] = 'SpecialViewAll';
 $wgSpecialPageGroups['ViewAll'] = 'other';
+$wgSpecialPages['ViewByLanguage'] = 'SpecialViewByLanguage';
+$wgSpecialPageGroups['ViewByLanguage'] = 'other';
 
 // Register modules
 // See also http://www.mediawiki.org/wiki/Manual:$wgResourceModules

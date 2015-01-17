@@ -1,7 +1,5 @@
 <?php
 
-namespace SpellingDictionary;
-
 class Words {
 	static function addWord( $formData ) {
 		// $user = $this->getUser();

@@ -59,7 +59,7 @@ class SpecialSpellingDictionary extends SpecialPage {
 	}
 
 	static function store( $formData ) {
-		SpellingDictionary\Words::addWord( $formData );
+		Words::addWord( $formData );
 	}
 
 }

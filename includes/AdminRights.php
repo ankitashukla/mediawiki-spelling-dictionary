@@ -13,10 +13,11 @@ class AdminRights {
 			__METHOD__
 		);
 		$result = array();
+		$words = "";
 		foreach ( $rows as $row ) {
-			$result[] = AdminRights::newFromRow( $row );
+			$words .= $row->sd_word . " of language " . $row->sd_language . "<br>";
 		}
-		return $result;
+		return $words;
 	}
 
 	public function displayByLanguage( $language ) {
