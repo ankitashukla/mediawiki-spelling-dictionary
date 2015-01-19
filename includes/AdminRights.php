@@ -27,15 +27,16 @@ class AdminRights {
 			'spell_dict_word_list',
 			'*',
 			array(
-				'language' => $language,
+				'sd_language' => $language,
 			),
 			__METHOD__
 		);
 		$result = array();
+		$words = "";
 		foreach ( $rows as $row ) {
-			$result[] = AdminRights::newFromRow( $row );
+			$words .= $row->sd_word . " of language " . $row->sd_language . "<br>";
 		}
-		return $result;
+		return $words;
 	}
 }
 

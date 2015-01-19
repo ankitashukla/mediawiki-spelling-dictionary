@@ -10,5 +10,6 @@ class SpecialViewByLanguage extends SpecialPage {
 		$out = $this->getOutput();
 		$out->setPageTitle( $this->msg( 'title-view-by-language' ) );
 		$out->addWikiMsg( 'view-by-lang-intro' );
+		$out->addHTML ( AdminRights::displayByLanguage( 'fr' ) );
 	}
 }
