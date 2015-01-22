@@ -112,4 +112,11 @@ class SDItem {
 		return $item;
 	}
 
+	function customSpecialPage( $page_title ) {
+		$item = new SDItem();
+		$page = SpecialPageFactory::getPage( $page_title );
+		$item->link = Linker::link( $page->getTitle(), $page->getDescription() );
+		return $item;
+	}
+
 }
