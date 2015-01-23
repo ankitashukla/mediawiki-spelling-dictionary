@@ -31,7 +31,8 @@ class SpecialSpellingDictionaryAdmin extends SpecialPage {
 
 		// SECTION: import and export
 		$import_export = new SDSection( $this->msg( 'sd-admin-importexport' )->text() );
-
+		$import_export->addItem( SDItem::customSpecialPage( 'Export' ) );
+		$import_export->addItem( SDItem::customSpecialPage( 'Import' ) );
 		$tree->addSection( $import_export );
 
 		return $tree;
