@@ -13,9 +13,9 @@ class AdminRights {
 			__METHOD__
 		);
 		$result = array();
-		$words = "";
+		$words = '<b>Spelling &nbsp;&nbsp;&nbsp;&nbsp;Language</b><br>';
 		foreach ( $rows as $row ) {
-			$words .= $row->sd_word . " of language " . $row->sd_language . "<br>";
+			$words .= $row->sd_word . "&nbsp;&nbsp;" . $row->sd_language . "<br>";
 		}
 		return $words;
 	}
