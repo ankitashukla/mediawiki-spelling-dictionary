@@ -15,7 +15,8 @@ class AdminRights {
 		$result = array();
 		$words = '<b>Spelling &nbsp;&nbsp;&nbsp;&nbsp;Language</b><br>';
 		foreach ( $rows as $row ) {
-			$words .= $row->sd_word . "&nbsp;&nbsp;" . $row->sd_language . "<br>";
+			$words .= "<span class = \"spelling\">".$row->sd_word .
+			"</span><span class = \"language\">" . $row->sd_language . "</span><br>";
 		}
 		return $words;
 	}

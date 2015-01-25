@@ -1,0 +1,11 @@
+/**
+ * Stylesheet for SpellingDictionary.
+ */
+.spelling {
+	margin-left:5em;
+	background-color: #f9f9f9;
+}
+
+.language {
+	margin-left:25em;
+}

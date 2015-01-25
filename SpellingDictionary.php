@@ -90,12 +90,9 @@ $wgSpecialPageGroups['ViewByLanguage'] = 'other';
 // See also http://www.mediawiki.org/wiki/Manual:$wgResourceModules
 // ResourceLoader modules are the de facto standard way to easily
 // load JavaScript and CSS files to the client.
-$wgResourceModules['ext.SpellingDictionary.welcome'] = array(
-	'scripts' => array(
-		'modules/ext.SpellingDictionary.welcome.js',
-	),
+$wgResourceModules['SpellingDictionary'] = array(
 	'styles' => array(
-		'modules/ext.SpellingDictionary.welcome.css',
+		'modules/SpellingDictionary.css',
 	),
 	'messages' => array(
 		'title-special',
@@ -104,16 +101,6 @@ $wgResourceModules['ext.SpellingDictionary.welcome'] = array(
 		'mediawiki.util',
 		'mediawiki.user',
 		'mediawiki.Title',
-	),
-
-	'localBasePath' => $dir,
-	'remoteExtPath' => 'SpellingDictionary/' . $dirbasename,
-);
-
-$wgResourceModules['ext.SpellingDictionary.welcome.init'] = array(
-	'scripts' => 'modules/ext.SpellingDictionary.welcome.init.js',
-	'dependencies' => array(
-		'ext.SpellingDictionary.welcome',
 	),
 
 	'localBasePath' => $dir,
@@ -172,21 +159,6 @@ $wgResourceModules['ext.SpellingDictionary.welcome.init'] = array(
  * always use a "wg" prefix + your extension name + your setting key.
  * The entire variable name should use "lowerCamelCase".
  */
-
-// Enable Welcome
-// SpellingDictionary of a configuration setting to enable the 'Welcome' feature:
-$wgSpellingDictionaryEnableWelcome = true;
-
-// Color map for the Welcome feature
-$wgSpellingDictionaryWelcomeColorDefault = '#eee';
-// Days not defined here fall back to the default
-$wgSpellingDictionaryWelcomeColorDays = array(
-	'Monday' => 'orange',
-	'Tuesday' => 'blue',
-	'Wednesday' => 'green',
-	'Thursday' => 'red',
-	'Friday' => 'yellow',
-);
 
 // Value of {{MYWORD}} constant
 $wgSpellingDictionaryMyWord = 'Awesome';
