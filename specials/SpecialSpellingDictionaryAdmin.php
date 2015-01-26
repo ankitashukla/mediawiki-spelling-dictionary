@@ -22,10 +22,12 @@ class SpecialSpellingDictionaryAdmin extends SpecialPage {
 		$browse_edit = new SDSection( $this->msg( 'sd-admin-browse-edit' )->text() );
 		// Item: View All
 		$viewall = SpecialPage::getTitleFor( 'ViewAll' );
-		$browse_edit->addItem( SDItem::showPage( $viewall, $this->msg( 'sd-admin-viewall' )->text() ));
+		$browse_edit->addItem( SDItem::showPage( $viewall, 
+								$this->msg( 'sd-admin-viewall' )->text() ));
 		// Item: View By Language
 		$viewByLang = SpecialPage::getTitleFor( 'ViewByLanguage' );
-		$browse_edit->addItem( SDItem::showPage( $viewByLang, $this->msg( 'sd-admin-view-by-lang' )->text() ));
+		$browse_edit->addItem( SDItem::showPage( $viewByLang,
+							$this->msg( 'sd-admin-view-by-lang' )->text() ));
 
 		$tree->addSection( $browse_edit );
 
