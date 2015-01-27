@@ -19,6 +19,7 @@
 	"spell-dict-language": "What language does the word belong to?",
 	"add-word-form-submit": "Submit word",
 	"sd-admin-browse-edit": "Browse and edit",
+	"sd-admin-add-more-spellings": "Add more spellings",
 	"sd-admin-viewall": "Browse all words",
 	"view-all-intro": "View all the words that have been submitted to Spelling Dictionary",
 	"sd-admin-view-by-lang": "View by language",
