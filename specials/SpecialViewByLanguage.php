@@ -10,6 +10,26 @@ class SpecialViewByLanguage extends SpecialPage {
 		$out = $this->getOutput();
 		$out->setPageTitle( $this->msg( 'title-view-by-language' ) );
 		$out->addWikiMsg( 'view-by-lang-intro' );
-		$out->addHTML ( AdminRights::displayByLanguage( 'fr' ) );
+		$formDescriptor = array(
+			'language' => array(
+				'type' => 'select',
+				'label-message' => 'sd-admin-select-language',
+				'required' => true,
+				'options' => array(
+					'English' => 'en',
+					'French' => 'fr',
+					'Hindi' => 'hi'
+				),
+			)
+			);
+		$form = new HTMLForm( $formDescriptor, $this->getContext(), 'add-word' );
+		$form->setDisplayFormat( 'vform' );
+		//$form->setSubmitText( wfMessage( 'sd-admin-view-selected-language' )->text() );
+		//Callback function
+		//$form->setSubmitCallback( array( 'SpecialSpellingDictionaryViewByLanguage', 'store' ) );
+
+		$form->show();
+
+		$out->addHTML ( AdminRights::displayByLanguage( 'fr') );
 	}
 }

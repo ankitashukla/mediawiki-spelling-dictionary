@@ -24,5 +24,7 @@
 	"view-all-intro": "View all the words that have been submitted to Spelling Dictionary",
 	"sd-admin-view-by-lang": "View by language",
 	"view-by-lang-intro": "View words sorted by language.",
-	"sd-admin-importexport": "Import and export"
+	"sd-admin-importexport": "Import and export",
+	"sd-admin-select-language": "Select language to view spellings",
+	"sd-admin-view-selected-language": "View spellings"
 }
