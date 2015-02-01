@@ -35,7 +35,8 @@ class AdminRights {
 		$result = array();
 		$words = "";
 		foreach ( $rows as $row ) {
-			$words .= $row->sd_word . " of language " . $row->sd_language . "<br>";
+			$words .= $row->sd_word . " of language " . $row->sd_language;
+			$words .= "\t<a href=''>Edit</a> \t<a href=''>Delete</a> <br>";
 		}
 		return $words;
 	}
