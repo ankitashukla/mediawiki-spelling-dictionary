@@ -49,13 +49,13 @@ class SpecialSpellingDictionary extends SpecialPage {
 			)
 		);
 
-		$form = new HTMLForm( $formDescriptor, $this->getContext(), 'add-word' );
-		$form->setDisplayFormat( 'vform' );
+		$form = HTMLForm::factory( 'vform', $formDescriptor, $this->getContext(), 'add-word' );
 		$form->setSubmitText( wfMessage( 'add-word-form-submit' )->text() );
 		//Callback function
 		$form->setSubmitCallback( array( 'SpecialSpellingDictionary', 'store' ) );
 
 		$form->show();
+
 	}
 
 	static function store( $formData ) {

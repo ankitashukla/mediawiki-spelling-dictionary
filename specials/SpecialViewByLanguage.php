@@ -22,8 +22,7 @@ class SpecialViewByLanguage extends SpecialPage {
 				),
 			)
 			);
-		$form = new HTMLForm( $formDescriptor, $this->getContext(), 'add-word' );
-		$form->setDisplayFormat( 'vform' );
+		$form = HTMLForm::factory( 'vform', $formDescriptor, $this->getContext(), 'add-word' );
 		//$form->setSubmitText( wfMessage( 'sd-admin-view-selected-language' )->text() );
 		//Callback function
 		//$form->setSubmitCallback( array( 'SpecialSpellingDictionaryViewByLanguage', 'store' ) );
