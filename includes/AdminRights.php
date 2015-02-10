@@ -21,14 +21,14 @@ class AdminRights {
 		return $words;
 	}
 
-	public function displayByLanguage( $language ) {
+	public function displayByLanguage( $formData ) {
 		global $wgSpellingDictionaryDatabase;
 		$dbr = wfGetDB( DB_SLAVE, array(), $wgSpellingDictionaryDatabase );
 		$rows = $dbr->select(
 			'spell_dict_word_list',
 			'*',
 			array(
-				'sd_language' => $language,
+				'sd_language' => $formData['language'],
 			),
 			__METHOD__
 		);
