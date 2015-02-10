@@ -36,10 +36,23 @@ class AdminRights {
 		$words = "";
 		foreach ( $rows as $row ) {
 			$words .= $row->sd_word . " of language " . $row->sd_language;
-			$words .= "\t<a href=''>Edit</a> \t<a href=''>Delete</a> <br>";
+			$words .= "\t<a href=''>Edit</a> \t<a href='' id = 'deleteSpelling'>Delete</a> <br>";
 		}
 		return $words;
 	}
+
+	public function deleteSpelling( $spelling ) {
+		global $wgSpellingDictionaryDatabase;
+		$dbr = wfGetDB( DB_SLAVE, array(), $wgSpellingDictionaryDatabase );
+		$rows = $dbr->delete(
+			'spell_dict_word_list',
+			array(
+				'sd_word' => $spelling,
+			),
+			__METHOD__
+		);
+	}
+
 }
 
 /**
