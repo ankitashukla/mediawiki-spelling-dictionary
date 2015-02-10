@@ -94,6 +94,9 @@ $wgResourceModules['SpellingDictionary'] = array(
 	'styles' => array(
 		'modules/SpellingDictionary.css',
 	),
+	'scripts' => array(
+		'modules/SpellingDictionary.js',
+	),
 	'messages' => array(
 		'title-special',
 	),
@@ -101,6 +104,7 @@ $wgResourceModules['SpellingDictionary'] = array(
 		'mediawiki.util',
 		'mediawiki.user',
 		'mediawiki.Title',
+		'oojs-ui',
 	),
 
 	'localBasePath' => $dir,
