@@ -25,12 +25,12 @@ class SpecialViewByLanguage extends SpecialPage {
 		$form = HTMLForm::factory( 'vform', $formDescriptor, $this->getContext(), 'add-word' );
 		$form->setSubmitText( wfMessage( 'sd-admin-view-selected-language' )->text() );
 		//Callback function
-		$form->setSubmitCallback( array( 'SpecialSpellingDictionaryViewByLanguage', 'show' ) );
+		$form->setSubmitCallback( array( 'SpecialSpellingDictionaryViewByLanguage', 'showSpellings' ) );
 
 		$form->show();
 	}
 
-	static function show( $formData ) {
+	static function showSpellings( $formData ) {
 		$out->addHTML ( AdminRights::displayByLanguage( $formData ) );
 	}
 }
