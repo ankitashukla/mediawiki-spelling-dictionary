@@ -3,10 +3,8 @@
 class SpecialViewByLanguage extends SpecialPage {
 
 	public function __construct() {
-		parent::__construct( 'ViewByLanguage' );
+		parent::__construct( 'ViewByLanguage', 'spelladmin' );
 	}
-
-	public function execute( $sub ) {
 		$out = $this->getOutput();
 		$out->setPageTitle( $this->msg( 'title-view-by-language' ) );
 		$out->addWikiMsg( 'view-by-lang-intro' );
