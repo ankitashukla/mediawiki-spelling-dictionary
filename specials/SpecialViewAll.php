@@ -3,7 +3,7 @@
 class SpecialViewAll extends SpecialPage {
 
 	public function __construct() {
-		parent::__construct( 'ViewAll' );
+		parent::__construct( 'ViewAll', 'editinterface' );
 	}
 
 	public function execute( $sub ) {

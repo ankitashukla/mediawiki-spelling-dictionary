@@ -12,7 +12,7 @@ class SpecialSpellingDictionaryAdmin extends SpecialPage {
 	 * Initialize the special page.
 	 */
 	public function __construct() {
-		parent::__construct( 'SpellingDictionaryAdmin' );
+		parent::__construct( 'SpellingDictionaryAdmin', 'editinterface' );
 	}
 
 	public function initializeTree() {
