@@ -33,6 +33,9 @@ $wgExtensionCredits['other'][] = array(
 
 // Setup
 
+$wgGroupPermissions['sysop']['spelladmin'] = true;
+$wgAvailableRights[] = 'spelladmin';
+
 // Initialize an easy to use shortcut:
 $dir = dirname( __FILE__ );
 $dirbasename = basename( $dir );
@@ -111,53 +114,50 @@ $wgResourceModules['SpellingDictionary'] = array(
 	'remoteExtPath' => 'SpellingDictionary/' . $dirbasename,
 );
 
-/**
-* Commented out this section. To be reused later (when integrating ULS for language selection)
-* // ULS
-* $resourcePaths = array(
-* 	'localBasePath' => __DIR__,
-* 	'remoteExtPath' => 'SpellingDictionary'
-* );
-* 
-* 
-* $wgResourceModules['jquery.uls'] = array(
-* 	'scripts' => array(
-* 		'modules/jquery.uls/src/jquery.uls.core.js',
-* 		'modules/jquery.uls/src/jquery.uls.lcd.js',
-* 		'modules/jquery.uls/src/jquery.uls.languagefilter.js',
-* 		'modules/jquery.uls/src/jquery.uls.regionfilter.js',
-* 	),
-* 	'styles' => array(
-* 		'modules/jquery.uls/css/jquery.uls.css',
-* 		'modules/jquery.uls/css/jquery.uls.lcd.css',
-* 	),
-* 	'dependencies' => array(
-* 		'jquery.i18n',
-* 		'jquery.uls.data',
-* 		'jquery.uls.grid',
-* 	),
-* ) + $resourcePaths;
-* 
-* $wgResourceModules['jquery.uls.compact'] = array(
-* 	'styles' => 'modules/jquery.uls/css/jquery.uls.compact.css',
-* 	'dependencies' => 'jquery.uls',
-* ) + $resourcePaths;
-* 
-* $wgResourceModules['jquery.uls.data'] = array(
-* 	'scripts' => array(
-* 		'modules/jquery.uls/src/jquery.uls.data.js',
-* 		'modules/jquery.uls/src/jquery.uls.data.utils.js',
-* 	),
-* 	'targets' => array( 'desktop', 'mobile' ),
-* ) + $resourcePaths;
-* 
-* $wgResourceModules['jquery.uls.grid'] = array(
-* 	'styles' => 'modules/jquery.uls/css/jquery.uls.grid.css',
-* ) + $resourcePaths;
-*/
+// ULS
+$resourcePaths = array(
+	'localBasePath' => __DIR__,
+	'remoteExtPath' => 'SpellingDictionary'
+);
+
+
+$wgResourceModules['jquery.uls'] = array(
+	'scripts' => array(
+		'modules/jquery.uls/src/jquery.uls.core.js',
+		'modules/jquery.uls/src/jquery.uls.lcd.js',
+		'modules/jquery.uls/src/jquery.uls.languagefilter.js',
+		'modules/jquery.uls/src/jquery.uls.regionfilter.js',
+	),
+	'styles' => array(
+		'modules/jquery.uls/css/jquery.uls.css',
+		'modules/jquery.uls/css/jquery.uls.lcd.css',
+	),
+	'dependencies' => array(
+		'jquery.i18n',
+		'jquery.uls.data',
+		'jquery.uls.grid',
+	),
+) + $resourcePaths;
+
+$wgResourceModules['jquery.uls.compact'] = array(
+	'styles' => 'modules/jquery.uls/css/jquery.uls.compact.css',
+	'dependencies' => 'jquery.uls',
+) + $resourcePaths;
+
+$wgResourceModules['jquery.uls.data'] = array(
+	'scripts' => array(
+		'modules/jquery.uls/src/jquery.uls.data.js',
+		'modules/jquery.uls/src/jquery.uls.data.utils.js',
+	),
+	'targets' => array( 'desktop', 'mobile' ),
+) + $resourcePaths;
+
+$wgResourceModules['jquery.uls.grid'] = array(
+	'styles' => 'modules/jquery.uls/css/jquery.uls.grid.css',
+) + $resourcePaths;
+
 
 // Configuration
-
 
 /** Your extension configuration settings. Since they are going to be global
  * always use a "wg" prefix + your extension name + your setting key.
