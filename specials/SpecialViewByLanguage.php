@@ -26,15 +26,17 @@ class SpecialViewByLanguage extends SpecialPage {
 				),
 			)
 			);
-		$form = HTMLForm::factory( 'vform', $formDescriptor, $this->getContext(), 'add-word' );
+		$form = HTMLForm::factory( 'vform', $formDescriptor, $this->getContext() );
 		$form->setSubmitText( wfMessage( 'sd-admin-view-selected-language' )->text() );
 		//Callback function
-		$form->setSubmitCallback( array( 'SpecialSpellingDictionaryViewByLanguage', 'showSpellings' ) );
+		$form->setSubmitCallback( array( 'SpecialViewByLanguage', 'showSpellings' ) );
 
 		$form->show();
 	}
 
-	static function showSpellings( $formData ) {
-		$out->addHTML ( AdminRights::displayByLanguage( $formData ) );
+	public function showSpellings( $formData ) {
+		$language = $formData['language'];
+		$out = $this->getOutput();
+		$out->addHTML ( AdminRights::displayByLanguage( $language ) );
 	}
 }

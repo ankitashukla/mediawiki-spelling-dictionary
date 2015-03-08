@@ -46,10 +46,11 @@ class SpecialSpellingDictionary extends SpecialPage {
 					'French' => 'fr',
 					'Hindi' => 'hi'
 				),
-			)
+				// 'class' => 'uls-trigger',
+				),
 		);
 
-		$form = HTMLForm::factory( 'vform', $formDescriptor, $this->getContext(), 'add-word' );
+		$form = HTMLForm::factory( 'vform', $formDescriptor, $this->getContext() );
 		$form->setSubmitText( wfMessage( 'add-word-form-submit' )->text() );
 		//Callback function
 		$form->setSubmitCallback( array( 'SpecialSpellingDictionary', 'store' ) );
