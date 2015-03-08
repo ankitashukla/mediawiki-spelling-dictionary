@@ -16,19 +16,20 @@ class AdminRights {
 		$words = '<b>Spelling &nbsp;&nbsp;&nbsp;&nbsp;Language</b><br>';
 		foreach ( $rows as $row ) {
 			$words .= "<span class = \"spelling\">".$row->sd_word .
+			"&nbsp;&nbsp;&nbsp;&nbsp;" .
 			"</span><span class = \"language\">" . $row->sd_language . "</span><br>";
 		}
 		return $words;
 	}
 
-	public function displayByLanguage( $formData ) {
+	public function displayByLanguage( $language ) {
 		global $wgSpellingDictionaryDatabase;
 		$dbr = wfGetDB( DB_SLAVE, array(), $wgSpellingDictionaryDatabase );
 		$rows = $dbr->select(
 			'spell_dict_word_list',
 			'*',
 			array(
-				'sd_language' => $formData['language'],
+				'sd_language' => $language,
 			),
 			__METHOD__
 		);
