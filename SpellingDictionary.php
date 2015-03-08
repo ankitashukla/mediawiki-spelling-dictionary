@@ -33,136 +33,54 @@ $wgExtensionCredits['other'][] = array(
 
 // Setup
 
-$wgGroupPermissions['sysop']['spelladmin'] = true;
-$wgAvailableRights[] = 'spelladmin';
+$GLOBALS['wgGroupPermissions']['sysop']['spelladmin'] = true;
+$GLOBALS['wgAvailableRights'][] = 'spelladmin';
 
-// Initialize an easy to use shortcut:
-$dir = dirname( __FILE__ );
-$dirbasename = basename( $dir );
+
+$dir = __DIR__;
+
+require_once "$dir/Resources.php";
+require_once "$dir/Autoload.php";
+
 
 // Globals for this extension
-$wgSpellingDictionaryDatabase = false;
+$GLOBALS['wgSpellingDictionaryDatabase'] = false;
 
 // Register files
 // MediaWiki need to know which PHP files contains your class. It has a
 // registering mecanism to append to the internal autoloader. Simply use
 // $wgAutoLoadClasses as below:
-$wgAutoloadClasses['Words'] = $dir . '/includes/Words.php';
-$wgAutoloadClasses['AdminRights'] = $dir . '/includes/AdminRights.php';
-$wgAutoloadClasses['SpellingDictionaryHooks'] = $dir . '/SpellingDictionary.hooks.php';
-$wgAutoloadClasses['SpecialSpellingDictionary'] = $dir . '/specials/SpecialSpellingDictionary.php';
-$wgAutoloadClasses['SpecialSpellingDictionaryAdmin'] = $dir . '/specials/'
-													.'SpecialSpellingDictionaryAdmin.php';
-$wgAutoloadClasses['SpecialViewAll'] = $dir . '/specials/SpecialViewAll.php';
-$wgAutoloadClasses['SpecialViewByLanguage'] = $dir . '/specials/SpecialViewByLanguage.php';
-$wgAutoloadClasses['ApiQuerySpellingDictionary'] = $dir . '/api/ApiQuerySpellingDictionary.php';
-$wgAutoloadClasses['SDTree'] = $dir . '/includes/AdminRights.php';
-$wgAutoloadClasses['SDSection'] = $dir . '/includes/AdminRights.php';
-$wgAutoloadClasses['SDItem'] = $dir . '/includes/AdminRights.php';
 
-$wgMessagesDirs['SpellingDictionary'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['SpellingDictionaryAlias'] = $dir . '/SpellingDictionary.i18n.alias.php';
-$wgExtensionMessagesFiles['SpellingDictionaryMagic'] = $dir . '/SpellingDictionary.i18n.magic.php';
 
-$wgAPIListModules['example'] = 'ApiQuerySpellingDictionary';
+$GLOBALS['wgMessagesDirs']['SpellingDictionary'] = __DIR__ . '/i18n';
+$GLOBALS['wgExtensionMessagesFiles']['SpellingDictionaryAlias'] =
+	$dir . '/SpellingDictionary.i18n.alias.php';
+$GLOBALS['wgExtensionMessagesFiles']['SpellingDictionaryMagic'] =
+	$dir . '/SpellingDictionary.i18n.magic.php';
+
+$GLOBALS['wgAPIListModules']['example'] = 'ApiQuerySpellingDictionary';
 
 // Register hooks
 // See also http://www.mediawiki.org/wiki/Manual:Hooks
-$wgHooks['BeforePageDisplay'][] = 'SpellingDictionaryHooks::onBeforePageDisplay';
-$wgHooks['ResourceLoaderGetConfigVars'][] =
+$GLOBALS['wgHooks']['BeforePageDisplay'][] = 'SpellingDictionaryHooks::onBeforePageDisplay';
+$GLOBALS['wgHooks']['ResourceLoaderGetConfigVars'][] =
 	'SpellingDictionaryHooks::onResourceLoaderGetConfigVars';
-$wgHooks['ParserFirstCallInit'][] = 'SpellingDictionaryHooks::onParserFirstCallInit';
-$wgHooks['MagicWordwgVariableIDs'][] = 'SpellingDictionaryHooks::onRegisterMagicWords';
-$wgHooks['ParserGetVariableValueSwitch'][] =
+$GLOBALS['wgHooks']['ParserFirstCallInit'][] = 'SpellingDictionaryHooks::onParserFirstCallInit';
+$GLOBALS['wgHooks']['MagicWordwgVariableIDs'][] = 'SpellingDictionaryHooks::onRegisterMagicWords';
+$GLOBALS['wgHooks']['ParserGetVariableValueSwitch'][] =
 	'SpellingDictionaryHooks::onParserGetVariableValueSwitch';
 # Schema updates for update.php
-$wgHooks['LoadExtensionSchemaUpdates'][] = 'SpellingDictionaryHooks::onLoadExtensionSchemaUpdates';
+$GLOBALS['wgHooks']['LoadExtensionSchemaUpdates'][] =
+	'SpellingDictionaryHooks::onLoadExtensionSchemaUpdates';
 
 // Register special pages
 // See also http://www.mediawiki.org/wiki/Manual:Special_pages
-$wgSpecialPages['SpellingDictionary'] = 'SpecialSpellingDictionary';
-$wgSpecialPageGroups['SpellingDictionary'] = 'other';
-$wgSpecialPages['SpellingDictionaryAdmin'] = 'SpecialSpellingDictionaryAdmin';
-$wgSpecialPageGroups['SpellingDictionaryAdmin'] = 'other';
-$wgSpecialPages['ViewAll'] = 'SpecialViewAll';
-$wgSpecialPageGroups['ViewAll'] = 'other';
-$wgSpecialPages['ViewByLanguage'] = 'SpecialViewByLanguage';
-$wgSpecialPageGroups['ViewByLanguage'] = 'other';
+$GLOBALS['wgSpecialPages']['SpellingDictionary'] = 'SpecialSpellingDictionary';
+$GLOBALS['wgSpecialPageGroups']['SpellingDictionary'] = 'other';
+$GLOBALS['wgSpecialPages']['SpellingDictionaryAdmin'] = 'SpecialSpellingDictionaryAdmin';
+$GLOBALS['wgSpecialPageGroups']['SpellingDictionaryAdmin'] = 'other';
+$GLOBALS['wgSpecialPages']['ViewAll'] = 'SpecialViewAll';
+$GLOBALS['wgSpecialPageGroups']['ViewAll'] = 'other';
+$GLOBALS['wgSpecialPages']['ViewByLanguage'] = 'SpecialViewByLanguage';
+$GLOBALS['wgSpecialPageGroups']['ViewByLanguage'] = 'other';
 
-// Register modules
-// See also http://www.mediawiki.org/wiki/Manual:$wgResourceModules
-// ResourceLoader modules are the de facto standard way to easily
-// load JavaScript and CSS files to the client.
-$wgResourceModules['SpellingDictionary'] = array(
-	'styles' => array(
-		'modules/SpellingDictionary.css',
-	),
-	'scripts' => array(
-		'modules/SpellingDictionary.js',
-	),
-	'messages' => array(
-		'title-special',
-	),
-	'dependencies' => array(
-		'mediawiki.util',
-		'mediawiki.user',
-		'mediawiki.Title',
-		'oojs-ui',
-	),
-
-	'localBasePath' => $dir,
-	'remoteExtPath' => 'SpellingDictionary/' . $dirbasename,
-);
-
-// ULS
-$resourcePaths = array(
-	'localBasePath' => __DIR__,
-	'remoteExtPath' => 'SpellingDictionary'
-);
-
-
-$wgResourceModules['jquery.uls'] = array(
-	'scripts' => array(
-		'modules/jquery.uls/src/jquery.uls.core.js',
-		'modules/jquery.uls/src/jquery.uls.lcd.js',
-		'modules/jquery.uls/src/jquery.uls.languagefilter.js',
-		'modules/jquery.uls/src/jquery.uls.regionfilter.js',
-	),
-	'styles' => array(
-		'modules/jquery.uls/css/jquery.uls.css',
-		'modules/jquery.uls/css/jquery.uls.lcd.css',
-	),
-	'dependencies' => array(
-		'jquery.i18n',
-		'jquery.uls.data',
-		'jquery.uls.grid',
-	),
-) + $resourcePaths;
-
-$wgResourceModules['jquery.uls.compact'] = array(
-	'styles' => 'modules/jquery.uls/css/jquery.uls.compact.css',
-	'dependencies' => 'jquery.uls',
-) + $resourcePaths;
-
-$wgResourceModules['jquery.uls.data'] = array(
-	'scripts' => array(
-		'modules/jquery.uls/src/jquery.uls.data.js',
-		'modules/jquery.uls/src/jquery.uls.data.utils.js',
-	),
-	'targets' => array( 'desktop', 'mobile' ),
-) + $resourcePaths;
-
-$wgResourceModules['jquery.uls.grid'] = array(
-	'styles' => 'modules/jquery.uls/css/jquery.uls.grid.css',
-) + $resourcePaths;
-
-
-// Configuration
-
-/** Your extension configuration settings. Since they are going to be global
- * always use a "wg" prefix + your extension name + your setting key.
- * The entire variable name should use "lowerCamelCase".
- */
-
-// Value of {{MYWORD}} constant
-$wgSpellingDictionaryMyWord = 'Awesome';
