@@ -12,6 +12,7 @@ class SpecialViewByLanguage extends SpecialPage {
 			return;
 		}
 		$out = $this->getOutput();
+		$out->addModules( array( 'ext.SpellingDictionary.viewByLanguage' ) );
 		$out->setPageTitle( $this->msg( 'title-view-by-language' ) );
 		$out->addWikiMsg( 'view-by-lang-intro' );
 
@@ -29,14 +30,16 @@ class SpecialViewByLanguage extends SpecialPage {
 				'type' => 'select',
 				'label-message' => 'sd-admin-select-language',
 				'required' => true,
+				'label' => 'Language',
 				'options' => $options,
+				'section' => 'section-chooselanguage',
 			)
 		);
-		$form = HTMLForm::factory( 'vform', $formDescriptor, $this->getContext() );
+		$form = HTMLForm::factory( 'ooui', $formDescriptor, $this->getContext() );
+		$form->setId( 'languageSelectionForm' );
 		$form->setSubmitText( wfMessage( 'sd-admin-view-selected-language' )->text() );
 		// Callback function
 		$form->setSubmitCallback( array( 'SpecialViewByLanguage', 'showSpellings' ) );
-
 		$form->show();
 	}
 
