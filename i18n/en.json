@@ -26,5 +26,6 @@
 	"view-by-lang-intro": "View words sorted by language.",
 	"sd-admin-importexport": "Import and export",
 	"sd-admin-select-language": "Select language to view spellings",
-	"sd-admin-view-selected-language": "View spellings"
+	"sd-admin-view-selected-language": "View spellings",
+	"-section-chooselanguage": "Choose language",
 }

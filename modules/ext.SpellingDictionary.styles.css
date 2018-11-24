@@ -1,0 +1,8 @@
+.ext-spellingdictionary-fullwidth {
+	width: 100%;
+	text-align: left;
+}
+.ext-spellingdictionary-fullwidth > a {
+	width: 100%;
+	box-sizing: border-box;
+}
